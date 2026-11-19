@@ -93,15 +93,16 @@ h1{font-size:clamp(42px,9vw,88px);line-height:1.02;margin:22px 0 16px;letter-spa
 .dots{display:flex;justify-content:center;gap:7px;margin-top:8px}
 .dots i{width:7px;height:7px;border-radius:99px;background:var(--cb);transition:all .35s;cursor:pointer}.dots i.on{width:24px;background:var(--ac)}
 @media(hover:none){.cbn{display:none}}
-.sl{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:16/10;max-height:78vh;display:flex;align-items:center;justify-content:center;border-radius:20px;border:1px solid var(--cb);background:var(--card2);box-shadow:var(--sh);overflow:hidden;padding:10px}
-.sl img,.sl .mk{flex:1 1 auto;width:100%;height:100%;min-width:0;object-fit:contain;display:block;border:0;box-shadow:none;border-radius:12px;cursor:zoom-in;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.sl img:hover{transform:scale(1.03)}
+.sl{flex:0 0 100%;scroll-snap-align:center;max-height:78vh;display:flex;align-items:center;justify-content:center;border-radius:20px;border:0;background-color:var(--d2) !important;box-shadow:var(--sh);overflow:hidden;padding:16px !important;box-sizing:border-box !important}
+.sl img,.sl .mk{width:100% !important;height:auto !important;max-height:480px !important;object-fit:contain !important;object-position:center !important;display:block;border:0;box-shadow:none;border-radius:12px;cursor:zoom-in;transition:transform .5s cubic-bezier(.2,.8,.2,1);box-sizing:border-box !important}
+.sl img:hover,.sl:hover img{transform:scale(1.03)}
 .sec{display:inline-block;margin:80px 0 20px;padding:8px 28px;border-radius:99px}
 h2{font-size:clamp(24px,3.6vw,34px);letter-spacing:-.03em;margin:0}
 .sv{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .sv .glass{padding:22px}.sv b{display:block;margin-bottom:4px}.sv span{color:var(--mu);font-size:14px}
 .sv i{font-style:normal;display:block;font-size:13px;color:var(--ac2);font-weight:700;margin-bottom:8px}
-.case{padding:30px;margin:24px 0}
+.case{padding:30px;margin:24px 0;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s cubic-bezier(.2,.8,.2,1)}
+.case:hover{transform:scale(1.02);box-shadow:0 22px 65px rgba(20,40,50,0.32), inset 0 1px 0 rgba(255,255,255,.5)}
 .case h3{font-size:clamp(24px,3vw,32px);margin:12px 0 4px;letter-spacing:-.02em}
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin:18px 0}
 .cols h4{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--ac)}
@@ -114,7 +115,7 @@ h2{font-size:clamp(24px,3.6vw,34px);letter-spacing:-.03em;margin:0}
 
 .ph{margin-top:20px;padding:28px;text-align:center;color:var(--mu);font-size:14px;border:1.5px dashed var(--cb);border-radius:18px}
 .lk{margin-top:18px}
-.rv{opacity:0;transform:translateY(34px) scale(.98);filter:blur(8px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.rv{opacity:0;transform:translateY(34px) scale(.98);filter:blur(8px);transition:all 1.2s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none;filter:none}
 .ct{padding:48px 28px;text-align:center;margin:80px 0 30px}
 .ct h2{margin:0 0 8px}.ct p{color:var(--mu)}
@@ -123,6 +124,16 @@ footer{text-align:center;color:#fff;font-size:13px;padding:10px 0 40px;text-shad
 #lb.on{display:flex;animation:fi .3s}#lb img{max-width:100%;max-height:100%;border-radius:18px;border:1px solid var(--cb);box-shadow:0 30px 80px rgba(0,0,0,.4)}
 @keyframes fi{from{opacity:0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}html{scroll-behavior:auto}}
+@media(max-width:640px){
+  .case{padding:20px 16px !important;}
+  .cols{grid-template-columns:1fr !important;gap:16px !important;}
+  .case h3{font-size:22px !important;word-break:break-word;}
+  .cols p, .case p{font-size:14.5px !important;word-break:break-word;}
+  .lead{font-size:16px !important;}
+  .w{padding:0 12px !important;}
+  header{padding:40px 0 16px !important;}
+  .hero{padding:36px 16px !important;}
+}
 </style></head><body>
 <div id="bg"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--sk2)"/><stop offset=".6" style="stop-color:var(--sk1)"/></linearGradient></defs><rect width="1600" height="1000" fill="url(#sk)"/>
 <g id="p1"><path d="M0 330C180 400 330 470 560 500C760 528 900 560 1100 640C1300 720 1450 740 1600 790L1600 1100L0 1100Z" style="fill:var(--d1)"/><path d="M0 330C180 400 330 470 560 500C760 528 900 560 1100 640C1300 720 1450 740 1600 790" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2"/></g>
@@ -146,6 +157,11 @@ footer{text-align:center;color:#fff;font-size:13px;padding:10px 0 40px;text-shad
 <div class="sv"><div class="glass rv"><b>Diagnóstico</b><span>Entendo a rotina do negócio e o gargalo antes de desenhar a tela.</span></div><div class="glass rv"><b>Design de interface</b><span>Visual moderno, responsivo e com a identidade do cliente.</span></div><div class="glass rv"><b>Desenvolvimento</b><span>Cadastros, agenda, estoque, financeiro, relatórios e login.</span></div><div class="glass rv"><b>Publicação</b><span>App no ar, com link próprio, pronto para o uso diário.</span></div></div>
 
 <div class="sec glass rv"><h2 id="cases">Cases em destaque</h2></div>
+
+<article class="case glass rv"><span class="tag">Product Design · UI/UX · Web App · 2026</span><h3>ATELIER — Guarda-Roupa Digital & Catálogo Pessoal</h3>
+<div class="cols"><div><h4>Problema</h4><p>Pessoas frequentemente esquecem peças guardadas no armário, repetem compras desnecessárias e não têm visibilidade real do retorno financeiro das roupas que adquirem em diferentes lojas online.</p></div><div><h4>Solução</h4><p>Desenvolvimento de uma experiência editorial inspirada na estética Apple Liquid Glass (painéis translúcidos, desfoque óptico, bordas especulares e tipografia limpa). O usuário pode fotografar uma peça ou colar um print direto da área de transferência (Ctrl+V) da loja onde comprou, catalogando automaticamente origem, preço, estação e link de compra.</p></div></div>
+<div class="chips"><i>Product Design</i><i>UI/UX</i><i>Web App</i><i>Apple Liquid Glass</i><i>Estúdio de Looks</i><i>Custo por Uso (CPW)</i><i>Local-First</i></div>
+<div class="g"><img src="./atelier-01.png" alt="ATELIER - Guarda-Roupa Digital" loading="lazy"><img src="./atelier-02.png" alt="ATELIER - Detalhe do Acervo" loading="lazy"><img src="./atelier-03.png" alt="ATELIER - Modal de Cadastro" loading="lazy"></div></article>
 
 <article class="case glass rv"><span class="tag">Parque aquático · Clube recreativo</span><h3>Recanto dos Pinheiros · Parque Aquático</h3>
 <div class="cols"><div><h4>Problema</h4><p>Venda de ingressos no balcão, controle de entrada manual e nenhuma visão em tempo real da lotação do parque.</p></div><div><h4>Solução</h4><p>Plataforma completa: compra de ingressos online com data, tipo e extras, ingresso digital com QR Code, controle de catraca na portaria e painel administrativo com lotação em tempo real.</p></div></div>
@@ -195,10 +211,20 @@ footer{text-align:center;color:#fff;font-size:13px;padding:10px 0 40px;text-shad
 <div class="chips"><i>Livros físicos e digitais</i><i>Audiolivros</i><i>Assinatura mensal</i><i>Box temático</i><i>Clube da leitura</i><i>Biblioteca do leitor</i><i>Busca por título e autor</i><i>Sacola de compras</i><i>Tema claro e escuro</i></div>
 <div class="g"><img src="./34-airbooks-pagina-inicial-da-loja.jpg" alt="Página inicial da loja" loading="lazy"><img src="./35-airbooks-destaque-da-semana.jpg" alt="Destaque da semana" loading="lazy"><img src="./36-airbooks-mais-vendidos.jpg" alt="Mais vendidos" loading="lazy"><img src="./37-airbooks-categorias-de-livros.jpg" alt="Categorias de livros" loading="lazy"><img src="./38-airbooks-audiolivros.jpg" alt="Audiolivros" loading="lazy"></div></article>
 
-<article class="case glass rv"><span class="tag">Cultura · Comunidade</span><h3>Clube do Livro Ordovás · Curadoria AirBooks</h3>
+<article class="case glass rv"><span class="tag">Cultura · Comunidade</span><h3>Clube do Livro</h3>
 <div class="cols"><div><h4>Problema</h4><p>Falta de um espaço regular e acessível para a leitura coletiva de autores brasileiros pouco representados, e dificuldade de organizar obras, cronograma e acompanhamento do grupo.</p></div><div><h4>Solução</h4><p>Portal do clube com cronograma de 13 leituras (nov/2026 a nov/2027), filtros por autoria e ano, dinâmica mensal dos encontros, proposta e objetivos ligados aos ODS, busca por livro, autor ou ODS e confirmação de interesse, integrado à curadoria da AirBooks.</p></div></div>
 <div class="chips"><i>Cronograma de 13 leituras</i><i>Filtros por autoria e ano</i><i>Dinâmica dos encontros</i><i>Objetivos e ODS</i><i>Busca por livro e autor</i><i>Confirmação de interesse</i><i>Tema claro e escuro</i></div>
 <div class="g"><img src="./39-clube-do-livro-ordovas-portal-do-clube-do-livro-ordovas.jpg" alt="Portal do Clube do Livro Ordovás" loading="lazy"></div></article>
+
+<article class="case glass rv"><span class="tag">Finanças · Privacidade & Cotidiano</span><h3>LASTRO · Cofre Financeiro Local</h3>
+<div class="cols"><div><h4>Problema</h4><p>Dificuldade em conciliar finanças pessoais, fluxo de pequenos negócios e acertos informais do cotidiano (empréstimos a amigos, compras parceladas e contas a receber) sem expor dados sensíveis em aplicativos na nuvem.</p></div><div><h4>Solução</h4><p>Aplicativo mobile-first 100% local e privado com criptografia AES-GCM 256-bit protegida por PIN, alternância de contexto (Pessoal, Negócio e Consolidado), recibos empilhados totalmente renomeáveis, abatimentos parciais e backup portátil.</p></div></div>
+<div class="chips"><i>Criptografia local AES-256</i><i>PIN e modo privacidade</i><i>Pessoal + Pequeno Negócio</i><i>Recibos renomeáveis</i><i>Abatimentos parciais</i><i>Backup local .json</i><i>Tema claro e escuro</i></div>
+<div class="g"><img src="./lastro-01.png" alt="LASTRO - Cofre Local" loading="lazy"><img src="./lastro-02.png" alt="LASTRO - Pilha de Recibos" loading="lazy"><img src="./lastro-03.png" alt="LASTRO - Visão Meu Negócio" loading="lazy"></div></article>
+
+<article class="case glass rv"><span class="tag">UI/UX Design · Direção de Arte · Front-end</span><h3>GALERIA VAZIO — Exposição Digital Minimalista</h3>
+<div class="cols"><div><h4>Problema</h4><p>Falta de um espaço digital com rigor estético para exibir obras contemporâneas sem ruídos visuais, distrações ou elementos excessivos que competissem com o acervo.</p></div><div><h4>Solução</h4><p>Concepção de interface e experiência digital para uma galeria de arte contemporânea sob uma abordagem estritamente minimalista. O projeto utiliza amplos espaços negativos, contraste monocromático rigoroso (#FFFFFF e #111111) e tipografia editorial (Cormorant Garamond e Inter) para que a interface desapareça e dê protagonismo absoluto às obras.</p></div></div>
+<div class="chips"><i>UI/UX Design</i><i>Direção de arte</i><i>Front-end (HTML/CSS/JS)</i><i>Minimalismo</i><i>Galeria digital</i><i>2026</i></div>
+<div class="g"><img src="./assets/galeria-vazio-1.png" alt="Galeria Vazio - Capa" loading="lazy"><img src="./assets/galeria-vazio-2.png" alt="Galeria Vazio - Detalhe" loading="lazy"></div></article>
 
 <section id="contato" class="ct glass rv"><h2>Vamos tirar o seu processo do papel?</h2><p>Me conte como funciona o seu negócio e eu desenho e publico a solução.</p>
 <div class="btns"><a class="b p" href="https://wa.me/5554996413548" target="_blank" rel="noopener">WhatsApp (54) 99641-3548</a><a class="b" href="mailto:alexrobertj@outlook.com">alexrobertj@outlook.com</a></div></section>
